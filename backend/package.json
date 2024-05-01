@@ -9,14 +9,20 @@
   "author": "@Link33d",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.12.7",
-    "prisma": "^5.13.0",
+    "@types/validator": "^13.11.9",
     "typescript": "^5.4.5"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
-    "@prisma/client": "^5.13.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
     "fastify": "^4.26.2",
-    "tsx": "^4.7.3"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.3",
+    "tsx": "^4.7.3",
+    "validator": "^13.11.0"
   }
 }
