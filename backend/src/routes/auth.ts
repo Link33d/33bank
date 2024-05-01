@@ -3,6 +3,7 @@ import { RegisterController } from "../controllers/Auth/RegisterController";
 import { HttpAuthBody } from "../utils/HttpBody";
 import { LoginController } from "../controllers/Auth/LoginController";
 import { serverError } from "../utils/HttpHelper";
+import { LogoutController } from "../controllers/Auth/LogoutController";
 
 export default async function (fastify: FastifyInstance, options: FastifyPluginOptions) {
 
@@ -27,6 +28,22 @@ export default async function (fastify: FastifyInstance, options: FastifyPluginO
         try {
             const loginController = new LoginController();
             const { body, statusCode } = await loginController.handle(request.body as HttpAuthBody);
+
+            reply.code(statusCode).send(body)
+            
+        } catch (err) {
+            const { body, statusCode } = serverError();
+
+            reply.code(statusCode).send(body)
+        }
+
+    })
+
+    fastify.post("/logout", async (request: FastifyRequest, reply: FastifyReply) => {
+
+        try {
+            const logoutController = new LogoutController();
+            const { body, statusCode } = await logoutController.handle(request.headers["authorization"]);
 
             reply.code(statusCode).send(body)
             

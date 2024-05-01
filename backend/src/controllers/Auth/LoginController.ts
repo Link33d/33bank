@@ -9,7 +9,7 @@ class LoginController
         
         if (!user) return badRequest(`Field email is required`)
 
-        const requiredFields = ["email", "password"];
+        const requiredFields = ["email", "password", "userIp"];
 
         for (const field of requiredFields) {
             if (!user[field as keyof HttpAuthBody]) {

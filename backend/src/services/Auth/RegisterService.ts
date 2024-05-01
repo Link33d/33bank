@@ -1,6 +1,6 @@
 import { HttpAuthBody } from "../../utils/HttpBody";
 import { badRequest, HttpResponse, ok, serverError } from "../../utils/HttpHelper";
-import { UserModel } from "../../utils/models";
+import { UserModel } from "../../models/User";
 import bcrypt from "bcrypt";
 
 class RegisterService 
