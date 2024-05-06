@@ -7,7 +7,7 @@ class LoginController
 {
     async handle(user: HttpAuthBody): Promise<HttpResponse<string>> {
         
-        if (!user) return badRequest(`Field email is required`)
+        if (!user) return badRequest(`Field \`email\` is required`)
 
         const requiredFields = ["email", "password", "userIp"];
 

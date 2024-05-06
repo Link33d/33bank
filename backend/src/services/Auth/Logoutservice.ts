@@ -21,7 +21,9 @@ class LogoutService
             user.save();
 
             return ok("disconnected");
-        } catch (error) {
+        } catch (err) {
+            console.log(err)
+            
             return serverError();
         }
     }

@@ -22,7 +22,7 @@ export interface User extends Document {
     bio: String,
     profilePic: String,
     money: number,
-    friends: string[],
+    pixKeys: String,
     transactions: Transactions[],
     sessions: Sessions[]
 }
@@ -35,7 +35,7 @@ export const UserModel: mongoose.Model<User> = mongoose.model<User>('User', new 
     bio: { type: String, default: "Thanks for visiting my profile!" },
     profilePic: { type: String, default: "" },
     money: { type: Number, default: 1000 },
-    friends: [{ type: String }], 
+    pixKeys: [{ type: String }], 
     transactions: [{ 
         type: { type: Number, required: true },
         createdAt: { type: Date, default: Date.now },

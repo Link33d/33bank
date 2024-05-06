@@ -27,6 +27,8 @@ class LogoutController
 
             return newUser; 
         } catch(err) {
+            console.log(err)
+
             return badRequest("Unauthorized")
         }
     }
