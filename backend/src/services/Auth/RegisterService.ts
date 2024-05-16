@@ -26,8 +26,6 @@ class RegisterService
             });
         
             await newUser.save();
-            
-            console.log(user.userIp)
 
             return new LoginService().generateToken(newUser, user.userIp);
         } catch (err) {

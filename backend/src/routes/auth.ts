@@ -4,9 +4,6 @@ import { HttpAuthBody } from "../utils/HttpBody";
 import { LoginController } from "../controllers/Auth/LoginController";
 import { serverError } from "../utils/HttpHelper";
 import { LogoutController } from "../controllers/Auth/LogoutController";
-import { request } from "http";
-import { CheckService } from "../services/Auth/CheckService";
-import { CheckController } from "../controllers/Auth/CheckController";
 
 export default async function (fastify: FastifyInstance, options: FastifyPluginOptions) {
 
@@ -62,22 +59,5 @@ export default async function (fastify: FastifyInstance, options: FastifyPluginO
             reply.code(statusCode).send(body)
         }
 
-    })
-
-    fastify.post("/check", async (request: FastifyRequest, reply: FastifyReply) => {
-        try {
-
-            const checkController = new CheckController();
-            const { body, statusCode } = await checkController.handle(request.body);
-
-            reply.code(statusCode).send(body)
-            
-        } catch (err) {
-            console.log(err)
-
-            const { body, statusCode } = serverError();
-
-            reply.code(statusCode).send(body)
-        }
     })
 }

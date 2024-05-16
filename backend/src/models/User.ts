@@ -22,7 +22,7 @@ export interface User extends Document {
     bio: String,
     profilePic: String,
     money: number,
-    pixKeys: String,
+    pixKeys: String[],
     transactions: Transactions[],
     sessions: Sessions[]
 }
